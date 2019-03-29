@@ -5,7 +5,7 @@ Hi, **bigmapmaker** is a small utility that creates big maps.
 I noticed a certain someone manually screenshotting and stitching map parts to create a large, detailed map image that could then be printed. Firmly believing there is no way that process should be manual I stumbled upon [rikonor's BigMapMaker](https://github.com/rikonor/BigMapMaker). He had a very similar motivation and his scripts did the job for me after some tuning (thanks!). However, I was intrigued by the whole thing and the bits of math behind it and decided to hack up my own version from scratch as a practice mini-project.
 
 ## How it works
-Similar to the original tool, **bigmapmaker** runs a headless web browser that screenshots parts of the map from a given region in a given zoom level and saves them as 500x500 **png** images. After they are all downloaded it does the stiching and outputs a big, detailed **jpg** map of the whole region. The main differences from the original tool:
+Similar to the original tool, **bigmapmaker** runs a headless web browser that screenshots parts of the map from a given region in a given zoom level and saves them as 500x500 **png** images. After they are all downloaded it does the stitching and outputs a big, detailed **jpg** map of the whole region. The main differences from the original tool:
 - It is written fully in python (3) with no subprocess invocation.
 - There is no need to manually find lat/lng offsets for each case. This depends on the current latitude and zoom and is now automatically approximated (with a sufficient precision).
 - There is no need to specify the number of tiles, it can be inferred from the region corners.
@@ -38,16 +38,19 @@ The tool is definitely not robust. It was tested on very few common sense exampl
 
 ## Examples
 
-A 4000x3000 map of Venice in zoom 16:
+**A 4000x3000 map of Venice in zoom 16:**
+
 ![Venice-bigmap](examples/venice16/bigmap.jpg)
 
-Tile `(000,000)`, the first out of 48 tiles used:
+**Tile `(000,000)`, the first out of 48 tiles used:**
+
 ![Venice-firsttile](examples/venice16/tile_\(000,000\).png)
 
-A screenshot of my GIMP after it barely managed to open a 248.1MB 38000x28000 map of Paris. This example is probably too huge to serve any real purpose but it's fun to see:
+**A screenshot of my GIMP after it barely managed to open a 248.1MB 38000x28000 map of Paris in zoom 18:**
+
 ![Gimp-paris18](examples/gimp-paris18.png)
 
-Also check out the map of Tel Aviv along with a printed version on [rikonor's repo](https://github.com/rikonor).
+This example is probably too huge to serve any reasonable purpose but it's fun to see. For another realistic example, check out the map of Tel Aviv along with a printed version on [rikonor's repo](https://github.com/rikonor/BigMapMaker).
 
 ## Disclaimer
 

@@ -6,7 +6,7 @@ I noticed a certain someone manually screenshotting and stitching map parts to c
 
 ## How it works
 Similar to the original tool, **bigmapmaker** runs a headless web browser that screenshots parts of the map from a given region in a given zoom level and saves them as 500x500 **png** images. After they are all downloaded it does the stitching and outputs a big, detailed **jpg** map of the whole region. The main differences from the original tool:
-- It is written fully in python (3) with no subprocess invocation.
+- It is written fully in python (3) with no subprocess invocation. PhantomJS subprocess crashed on my Ubuntu 95% of the time, but it worked on Windows so it might be just me.
 - There is no need to manually find lat/lng offsets for each case. This depends on the current latitude and zoom and is now automatically approximated (with a sufficient precision).
 - There is no need to specify the number of tiles, it can be inferred from the region corners.
 - It doesn't refetch tiles already present (so you can resume the tile fetching part if it crashes).

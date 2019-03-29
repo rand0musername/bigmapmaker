@@ -5,8 +5,8 @@ from stitcher import Stitcher
 def main():
     parser = argparse.ArgumentParser(description='A small utility that creates a big map.')
 
-    parser.add_argument('--start', required=True, help='lat,lng pair of the top left point on the big map (comma-separated)')
-    parser.add_argument('--end', required=True, help='lat,lng pair of the bottom right point on the big map (comma-separated)')
+    parser.add_argument('--start', required=True, help='top-left point of the region of interest (comma-separated lat/lng pair)')
+    parser.add_argument('--end', required=True, help='bottom-right point of the region of interest (comma-separated lat/lng pair)')
     parser.add_argument('--zoom', type=int, required=True, help='zoom level')
     parser.add_argument('--out', required=True, help='output directory')
     parser.add_argument('--transit', help='enable transit layer', action='store_true')
